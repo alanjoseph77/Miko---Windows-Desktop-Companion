@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Production output
+dist/
+dist-electron/
+release/
+
+# Logs and cache
+*.log
+npm-debug.log*
+yarn-debug.log*
+.eslintcache
+
+# Environment variables & local state
+.env
+.env.local
+*.local
+miko-window-state.json
+
+# OS files
+Thumbs.db
+.DS_Store

@@ -1,0 +1,556 @@
+/* ==========================================================================
+   Cosmic Black Hole & Windows Taskbar Jumping Sequence Styles
+   ========================================================================== */
+
+.miko-cosmic-runway-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  z-index: 150;
+  overflow: hidden;
+  background: radial-gradient(
+    circle at 50% 30%,
+    rgba(30, 27, 75, 0.45) 0%,
+    rgba(15, 10, 35, 0.65) 100%
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  -webkit-app-region: no-drag;
+  animation: cosmic-fade-in 0.35s ease;
+}
+
+@keyframes cosmic-fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   Reminder Notice Header Banner
+   -------------------------------------------------------------------------- */
+.miko-cosmic-banner {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid #a78bfa;
+  border-radius: 20px;
+  padding: 6px 16px;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
+  z-index: 160;
+  animation: miko-pop 0.3s ease;
+}
+
+.miko-cosmic-banner-icon {
+  font-size: 16px;
+  animation: miko-pulse 1s infinite alternate;
+}
+
+.miko-cosmic-banner-text {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e1b4b;
+  max-width: 260px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.miko-cosmic-skip-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 12px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #4b5563;
+  cursor: pointer;
+  z-index: 165;
+  transition: all 0.15s ease;
+}
+
+.miko-cosmic-skip-btn:hover {
+  background: #ffffff;
+  color: #1e1b4b;
+  transform: scale(1.05);
+}
+
+/* --------------------------------------------------------------------------
+   Cosmic Black Hole Portal & Accretion Disk
+   -------------------------------------------------------------------------- */
+.miko-black-hole {
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+}
+
+.miko-black-hole.expand {
+  transform: scale(1);
+  opacity: 1;
+  animation: black-hole-grow 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.miko-black-hole.active {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.miko-black-hole.collapse {
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.55, 0.055, 0.675, 0.19), opacity 0.4s ease;
+}
+
+.miko-black-hole.hidden {
+  display: none;
+}
+
+@keyframes black-hole-grow {
+  0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+  60% { transform: scale(1.15) rotate(45deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* Outer Gravitational Glow */
+.miko-bh-glow {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.8) 0%,
+    rgba(236, 72, 153, 0.4) 40%,
+    transparent 70%
+  );
+  filter: blur(8px);
+  animation: pulse-glow 2s infinite alternate;
+}
+
+@keyframes pulse-glow {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  100% { transform: scale(1.15); opacity: 1; }
+}
+
+/* Spinning Accretion Disk */
+.miko-bh-accretion {
+  position: absolute;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  border: 3.5px dashed #f472b6;
+  box-shadow: 0 0 18px #a855f7, inset 0 0 14px #ec4899;
+  animation: accretion-spin 2.2s linear infinite;
+}
+
+@keyframes accretion-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Event Horizon / Deep Black Singularity Core */
+.miko-bh-core {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #000000;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.9), 0 0 8px #8b5cf6;
+}
+
+.miko-bh-distortion {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid rgba(192, 132, 252, 0.6);
+  animation: distort-pulse 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes distort-pulse {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+
+.miko-bh-sparkles {
+  position: absolute;
+  pointer-events: none;
+  font-size: 14px;
+}
+.miko-bh-sparkles span {
+  position: absolute;
+  animation: sparkle-twinkle 1.2s infinite ease-in-out alternate;
+}
+.miko-bh-sparkles .sp1 { top: -20px; left: 10px; animation-delay: 0s; color: #f472b6; }
+.miko-bh-sparkles .sp2 { bottom: -15px; right: 10px; animation-delay: 0.4s; color: #38bdf8; }
+.miko-bh-sparkles .sp3 { top: 20px; right: -20px; animation-delay: 0.8s; color: #facc15; }
+
+@keyframes sparkle-twinkle {
+  0% { transform: scale(0.6) rotate(0deg); opacity: 0.4; }
+  100% { transform: scale(1.3) rotate(90deg); opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   Mini Chibi Miko Character & Jumping Physics
+   -------------------------------------------------------------------------- */
+.miko-mini-character {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 54px;
+  height: 63px;
+  z-index: 170;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.miko-mini-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 4px 10px rgba(124, 58, 237, 0.4));
+}
+
+.miko-mini-trail {
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  color: #c084fc;
+  font-size: 14px;
+  opacity: 0.7;
+  animation: trail-sparkle 0.4s infinite alternate;
+}
+
+@keyframes trail-sparkle {
+  0% { transform: scale(0.7) translateY(0); opacity: 0.4; }
+  100% { transform: scale(1.2) translateY(-4px); opacity: 0.9; }
+}
+
+/* Hopping parabolic jump arc */
+.hopping-arc .miko-mini-svg {
+  animation: chibi-hop-bounce 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes chibi-hop-bounce {
+  0% { transform: translateY(0) scale(1, 1); }
+  35% { transform: translateY(-24px) scale(0.92, 1.15) rotate(6deg); }
+  70% { transform: translateY(-8px) scale(1.05, 0.95); }
+  100% { transform: translateY(0) scale(1, 1); }
+}
+
+/* Big leap down animation */
+.leap-down-anim {
+  transition: transform 0.65s cubic-bezier(0.34, 1.3, 0.64, 1) !important;
+}
+
+.leap-down-anim .miko-mini-svg {
+  animation: grand-somersault 0.65s ease-in-out;
+}
+
+@keyframes grand-somersault {
+  0% { transform: translateY(0) scale(1); }
+  30% { transform: translateY(-40px) scale(1.1) rotate(180deg); }
+  70% { transform: translateY(-15px) scale(1.05) rotate(320deg); }
+  100% { transform: translateY(0) scale(1.2) rotate(360deg); }
+}
+
+/* --------------------------------------------------------------------------
+   Impact Sparkle Burst
+   -------------------------------------------------------------------------- */
+.miko-impact-sparkle {
+  position: absolute;
+  font-size: 18px;
+  pointer-events: none;
+  z-index: 180;
+  animation: impact-pop 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes impact-pop {
+  0% { transform: translate(-50%, -50%) scale(0.3); opacity: 1; }
+  50% { transform: translate(-50%, -65%) scale(1.4); opacity: 1; }
+  100% { transform: translate(-50%, -90%) scale(0.8); opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   Windows Taskbar App Icons Dock Track (Exact Layout From Screenshot)
+   -------------------------------------------------------------------------- */
+.miko-taskbar-runway-dock {
+  position: absolute;
+  top: 195px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  max-width: 95%;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 8px 14px;
+  box-shadow: 0 14px 34px rgba(124, 58, 237, 0.22), 0 2px 8px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 160;
+  animation: dock-rise 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes dock-rise {
+  0% { transform: translateX(-50%) translateY(20px); opacity: 0; }
+  100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+
+.miko-taskbar-dock-track {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.miko-taskbar-app-icon-slot {
+  position: relative;
+  width: 36px;
+  height: 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(243, 244, 246, 0.65);
+  border: 1px solid rgba(229, 231, 235, 0.8);
+  transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.miko-taskbar-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
+}
+
+/* Squash effect when Miko lands on an icon */
+.miko-taskbar-app-icon-slot.squashed {
+  transform: translateY(4px) scale(0.88, 0.82);
+  background: rgba(167, 139, 250, 0.35);
+  border-color: #8b5cf6;
+}
+
+.miko-taskbar-app-icon-slot.active-target {
+  box-shadow: 0 0 14px rgba(139, 92, 246, 0.5);
+  border-color: #8b5cf6;
+  background: #ffffff;
+}
+
+.miko-taskbar-app-icon-slot.passed {
+  opacity: 0.85;
+}
+
+/* Windows 11-style active app indicator dot */
+.miko-taskbar-dot {
+  width: 5px;
+  height: 2.5px;
+  background: #9ca3af;
+  border-radius: 2px;
+  margin-top: 2px;
+  transition: all 0.2s ease;
+}
+
+.miko-taskbar-dot.glowing {
+  width: 14px;
+  background: #8b5cf6;
+  box-shadow: 0 0 6px #8b5cf6;
+}
+
+/* --------------------------------------------------------------------------
+   Real Physical Taskbar Runway Overlay (100% Transparent Over Desktop!)
+   -------------------------------------------------------------------------- */
+.miko-real-taskbar-runway-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent !important;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 9999;
+}
+
+.miko-real-taskbar-banner {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid #8b5cf6;
+  border-radius: 18px;
+  padding: 6px 16px;
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.35);
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e1b4b;
+  animation: miko-pop 0.3s ease;
+}
+
+.miko-real-black-hole {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.miko-real-black-hole.expand {
+  animation: black-hole-grow 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.miko-real-black-hole.active {
+  transform: scale(1.05);
+}
+
+.miko-real-black-hole.collapse {
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.miko-real-black-hole.hidden {
+  display: none;
+}
+
+.miko-real-chibi-hopper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 54px;
+  height: 63px;
+  z-index: 10000;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+  pointer-events: none;
+}
+
+.miko-real-chibi-hopper.emerge-anim .miko-mini-svg {
+  animation: chibi-pop-out 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes chibi-pop-out {
+  0% { transform: scale(0.2) rotate(-90deg); opacity: 0; }
+  50% { transform: scale(1.3) rotate(20deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.miko-real-impact-sparkle {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.miko-real-impact-sparkle .sparkle-symbol {
+  font-size: 20px;
+  animation: impact-pop 0.45s ease forwards;
+}
+
+.miko-real-impact-sparkle .impact-ripple {
+  width: 38px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #a855f7;
+  animation: ripple-spread 0.4s ease-out forwards;
+}
+
+@keyframes ripple-spread {
+  0% { transform: scale(0.3); opacity: 1; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   3D Toon Cat Taskbar Walking & Alert Runner Styles
+   -------------------------------------------------------------------------- */
+.toon-cat-hopper-box {
+  position: relative;
+  width: 100px;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.35));
+}
+
+.miko-real-chibi-hopper.emerge-anim .toon-cat-hopper-box {
+  animation: cat-pop-out 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes cat-pop-out {
+  0% { transform: scale(0.1) rotate(-35deg); opacity: 0; }
+  60% { transform: scale(1.15) rotate(8deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* Gentle energetic cat walking/trotting bounce across taskbar icons */
+.hopping-arc .toon-cat-hopper-box {
+  animation: cat-trot-bounce 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes cat-trot-bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-14px); } /* Gentle energetic trot */
+  100% { transform: translateY(0); }
+}
+
+/* Soft contact shadow beneath 4 paws */
+.toon-cat-shadow {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.6) 0%, rgba(15, 23, 42, 0) 70%);
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(1.5px);
+}
+
+.hopping-arc .toon-cat-shadow {
+  animation: cat-shadow-scale 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes cat-shadow-scale {
+  0% { transform: translateX(-50%) scale(1); opacity: 0.65; }
+  50% { transform: translateX(-50%) scale(0.7); opacity: 0.3; filter: blur(3px); }
+  100% { transform: translateX(-50%) scale(1); opacity: 0.65; }
+}
+
+/* Playful cat pounce leap off taskbar */
+.leap-down-anim .toon-cat-hopper-box {
+  animation: cat-pounce-leap 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes cat-pounce-leap {
+  0% { transform: translateY(0) scale(1); }
+  40% { transform: translateY(-38px) scale(1.12); }
+  100% { transform: translateY(0) scale(1.15); }
+}
+

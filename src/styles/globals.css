@@ -1,0 +1,77 @@
+:root {
+  --color-primary: #8b5cf6;
+  --color-primary-light: #c4b5fd;
+  --color-primary-dark: #6d28d9;
+  --color-lavender: #f5f3ff;
+  --color-lavender-mid: #ede9fe;
+  --color-pink: #f472b6;
+  --color-pink-soft: #fbcfe8;
+  --color-text-navy: #1e1b4b;
+  --color-text-muted: #6b7280;
+  --color-bg-glass: rgba(255, 255, 255, 0.82);
+  --color-border-glass: rgba(255, 255, 255, 0.6);
+  --color-shadow-glass: rgba(124, 58, 237, 0.16);
+
+  --font-main: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-bubble: 'Nunito', 'Outfit', sans-serif;
+}
+
+[data-theme='dark'] {
+  --color-primary: #a78bfa;
+  --color-primary-light: #c4b5fd;
+  --color-primary-dark: #7c3aed;
+  --color-lavender: #1e1b4b;
+  --color-lavender-mid: #2e1065;
+  --color-pink: #f472b6;
+  --color-pink-soft: #831843;
+  --color-text-navy: #f5f3ff;
+  --color-text-muted: #c4b5fd;
+  --color-bg-glass: rgba(30, 27, 75, 0.88);
+  --color-border-glass: rgba(167, 139, 250, 0.28);
+  --color-shadow-glass: rgba(0, 0, 0, 0.45);
+}
+
+[data-theme='light'] {
+  --color-primary: #7c3aed;
+  --color-primary-light: #ddd6fe;
+  --color-primary-dark: #5b21b6;
+  --color-lavender: #faf5ff;
+  --color-lavender-mid: #f3e8ff;
+  --color-pink: #ec4899;
+  --color-pink-soft: #fce7f3;
+  --color-text-navy: #0f172a;
+  --color-text-muted: #64748b;
+  --color-bg-glass: rgba(255, 255, 255, 0.92);
+  --color-border-glass: rgba(230, 225, 250, 0.9);
+  --color-shadow-glass: rgba(99, 102, 241, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: transparent !important;
+  color: var(--color-text-navy);
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Custom slim scrollbar for floating panels */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-light);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
