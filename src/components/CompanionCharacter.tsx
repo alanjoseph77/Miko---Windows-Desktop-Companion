@@ -379,7 +379,7 @@ export const CompanionCharacter: React.FC<CompanionCharacterProps> = ({
           onPointerUp={handlePointerUp}
         >
           <img
-            src="./characters/miko_art.jpg"
+            src="./characters/miko_art1.png"
             alt="Miko Companion"
             className="miko-art-image"
             draggable={false}

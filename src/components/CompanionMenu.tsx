@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageSquare, Target, CheckSquare, Settings, Smile, Bell, X, EyeOff } from 'lucide-react';
+import { Target, CheckSquare, Settings, Smile, Bell, X, EyeOff } from 'lucide-react';
 import { ActivePanel } from '../types';
 
 interface CompanionMenuProps {
@@ -20,7 +20,6 @@ export const CompanionMenu: React.FC<CompanionMenuProps> = ({
   if (!isOpen) return null;
 
   const menuItems = [
-    { id: 'chat' as const, label: 'Chat', icon: <MessageSquare size={16} />, emoji: '💬' },
     { id: 'reminders' as const, label: 'Reminders', icon: <Bell size={16} />, emoji: '⏰' },
     { id: 'focus' as const, label: 'Focus & Timer', icon: <Target size={16} />, emoji: '🎯' },
     { id: 'tasks' as const, label: 'Tasks', icon: <CheckSquare size={16} />, emoji: '📝' },

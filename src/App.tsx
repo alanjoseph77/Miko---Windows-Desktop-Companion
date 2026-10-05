@@ -3,7 +3,6 @@ import { Menu, EyeOff, X, Bell, Check, Clock, Minus } from 'lucide-react';
 import { CompanionCharacter } from './components/CompanionCharacter';
 import { SpeechBubble } from './components/SpeechBubble';
 import { CompanionMenu } from './components/CompanionMenu';
-import { ChatPanel } from './components/ChatPanel';
 import { FocusTimer } from './components/FocusTimer';
 import { TaskPanel } from './components/TaskPanel';
 import { SettingsPanel } from './components/SettingsPanel';
@@ -205,13 +204,7 @@ export const App: React.FC = () => {
         onExit={handleCloseWindow}
       />
 
-      <ChatPanel
-        isOpen={activePanel === 'chat'}
-        onClose={handlePanelClose}
-        onBackToMenu={handleBackToMenu}
-        onCharacterStateChange={setCharacterState}
-        onSpeak={showMessage}
-      />
+      {/* ChatPanel hidden as requested */}
 
       <FocusTimer
         isOpen={activePanel === 'focus'}

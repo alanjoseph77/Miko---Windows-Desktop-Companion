@@ -2,7 +2,7 @@
 
 Miko is a cute, anime-style desktop companion application engineered for Windows. She floats directly over your desktop without a traditional window border or rectangular background, keeping you motivated, focused, and organized with cheerful micro-animations, a Pomodoro timer, task checklist, and interactive local AI chat.
 
-![Miko Companion](./public/characters/miko_art.jpg)
+![Miko Companion](./public/characters/miko_art1.png)
 
 ---
 
