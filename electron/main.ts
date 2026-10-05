@@ -4,6 +4,16 @@ import fs from 'fs';
 import { registerIpcHandlers, sendTrayAction } from './ipc';
 import { WindowPosition } from '../src/types';
 
+// Is development mode?
+const isDev = !app.isPackaged && (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV);
+if (isDev) {
+  try {
+    app.setPath('userData', path.join(app.getPath('appData'), 'miko-desktop-companion-dev'));
+  } catch {
+    // Ignore if called after app ready
+  }
+}
+
 // State persistence path
 const STATE_FILE_PATH = path.join(app.getPath('userData'), 'miko-window-state.json');
 
